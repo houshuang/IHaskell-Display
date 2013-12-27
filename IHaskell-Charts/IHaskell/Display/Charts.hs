@@ -4,7 +4,6 @@ module IHaskell.Display.Charts where
 import ClassyPrelude
 
 import System.Directory
-import Text.Printf
 import Data.Default.Class
 import Graphics.Rendering.Chart.Renderable
 import Graphics.Rendering.Chart.Backend.Cairo
