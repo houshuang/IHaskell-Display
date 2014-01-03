@@ -27,7 +27,7 @@ chartData renderable format = do
 
   -- Write the PNG image.
   let filename = ".ihaskell-chart.png"
-      opts = def{_fo_format = format}
+      opts = def{_fo_format = format, _fo_size = (300, 200)}
   renderableToFile opts renderable filename
 
   -- Convert to base64.
