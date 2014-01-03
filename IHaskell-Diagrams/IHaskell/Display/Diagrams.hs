@@ -14,8 +14,9 @@ import Diagrams.Backend.Cairo
 import IHaskell.Display
 
 instance IHaskellDisplay (Diagram Cairo R2) where
-  display renderable = [svg svgDisplay, png imgData]
+  display renderable = [png imgData]
     where 
+      -- Don't send SVG so we can resize in the notebook.
       svgDisplay = unsafePerformIO $ diagramData renderable SVG
       imgData = unsafePerformIO $ diagramData renderable PNG
 

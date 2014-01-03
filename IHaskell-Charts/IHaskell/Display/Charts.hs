@@ -14,10 +14,13 @@ import System.IO.Unsafe
 import IHaskell.Display
 
 instance IHaskellDisplay (Renderable a) where
-  display renderable = [svg svgDisplay, png imgData]
+  display renderable = [png imgData]
     where 
-      svgDisplay = unsafePerformIO $ chartData renderable SVG
       imgData = unsafePerformIO $ chartData renderable PNG
+
+      -- We can add `svg svgDisplay` to the output of `display`,
+      -- but SVGs are not resizable in the IPython notebook.
+      svgDisplay = unsafePerformIO $ chartData renderable SVG
 
 chartData :: Renderable a -> FileFormat -> IO String
 chartData renderable format = do
