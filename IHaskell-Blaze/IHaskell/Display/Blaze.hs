@@ -10,7 +10,7 @@ import Text.Blaze.Internal
 import Control.Monad
 
 instance IHaskellDisplay (MarkupM a) where
-  display val = [stringDisplay, htmlDisplay]
+  display val = return [stringDisplay, htmlDisplay]
     where 
       str = renderMarkup (void val)
       stringDisplay = plain str
